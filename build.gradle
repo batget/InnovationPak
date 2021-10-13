@@ -2,7 +2,9 @@ plugins {
     id 'org.springframework.boot' version '2.5.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id("nu.studer.jooq") version "6.0.1"
 }
+
 
 group = 'by.belohvostik'
 version = '0.0.1-SNAPSHOT'
@@ -20,15 +22,16 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.5.5'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.5.5'
     implementation 'org.springframework.boot:spring-boot-starter-webflux:2.5.5'
-    implementation 'org.liquibase:liquibase-core:4.4.3'
+    //implementation 'org.liquibase:liquibase-core:4.4.3'
     developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.5'
     runtimeOnly 'mysql:mysql-connector-java:8.0.25'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.5'
     testImplementation 'io.projectreactor:reactor-test:3.4.10'
-    implementation group: 'org.springframework', name: 'spring-context', version: '5.3.10'
+
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.5.5'
     implementation 'org.springframework.boot:spring-boot-starter-jooq:2.5.5'
     compileOnly 'org.projectlombok:lombok:1.18.22'
+
 
 }
 
