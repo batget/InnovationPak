@@ -12,7 +12,7 @@ public class DefCustomerService implements CustomerService {
     private final CustomerRepository customerRepository;
 
     @Override
-    public Customer getCustomer(Integer id) {
+    public Customer getCustomerFineById(Integer id) {
         return customerRepository.findById(id).get();
     }
 }

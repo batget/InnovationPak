@@ -4,5 +4,5 @@ import by.belohvostik.innovationpak.models.Customer;
 
 public interface CustomerService {
 
-    Customer getCustomer(Integer id);
+    Customer getCustomerFineById(Integer id);
 }

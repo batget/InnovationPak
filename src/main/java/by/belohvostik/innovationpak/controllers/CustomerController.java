@@ -13,8 +13,8 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @GetMapping("/customer/{id}")
+    @GetMapping("/read/{id}")
     public Customer sayCustomer(@PathVariable Integer id) {
-        return customerService.getCustomer(id);
+        return customerService.getCustomerFineById(id);
     }
 }

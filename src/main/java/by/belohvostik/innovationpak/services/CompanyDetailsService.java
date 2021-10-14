@@ -5,6 +5,6 @@ import by.belohvostik.innovationpak.models.CompanyDetails;
 
 public interface CompanyDetailsService {
 
-    CompanyDetails getCompany(Long id);
+    CompanyDetails getCompanyFineById(Long id);
 
 }

@@ -15,8 +15,8 @@ public class CompanyDetailsController {
 
 private final CompanyDetailsService companyDetailsService;
 
-    @GetMapping("/company/{id}")
+    @GetMapping("/read/{id}")
     public CompanyDetails sayCompany(@PathVariable Long id) {
-        return companyDetailsService.getCompany(id);
+        return companyDetailsService.getCompanyFineById(id);
     }
 }
