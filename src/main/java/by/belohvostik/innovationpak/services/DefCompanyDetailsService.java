@@ -14,7 +14,7 @@ public class DefCompanyDetailsService implements CompanyDetailsService {
     private final CompanyDetailsRepository companyDetailsRepository;
 
     @Override
-    public CompanyDetails getCompanyFineById(Long id) {
+    public CompanyDetails getCompanyFindById(Long id) {
         return companyDetailsRepository.findById(id).get();
     }
 }

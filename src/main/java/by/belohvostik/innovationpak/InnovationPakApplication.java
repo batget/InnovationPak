@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.r2dbc.R2dbcAutoConfiguration;
 
 
 @SpringBootApplication(exclude = { R2dbcAutoConfiguration.class })
-public class InnovationpakApplication {
+public class InnovationPakApplication {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(InnovationpakApplication.class, args);
+        SpringApplication.run(InnovationPakApplication.class, args);
     }
 
 }
