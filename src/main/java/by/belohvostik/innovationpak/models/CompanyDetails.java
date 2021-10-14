@@ -1,8 +1,8 @@
 package by.belohvostik.innovationpak.models;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,8 +12,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "company_details")
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CompanyDetails {
 
 
@@ -25,5 +24,20 @@ public class CompanyDetails {
     private String account;
     private String bank_name;
     private String bank_bik;
+
+    public CompanyDetails(
+            @JsonProperty("id") Long id,
+            @JsonProperty("name") String name,
+            @JsonProperty("address") String address,
+            @JsonProperty("account") String account,
+            @JsonProperty("bank_name") String bank_name,
+            @JsonProperty("bank_bik") String bank_bik) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.account = account;
+        this.bank_name = bank_name;
+        this.bank_bik = bank_bik;
+    }
 
 }
