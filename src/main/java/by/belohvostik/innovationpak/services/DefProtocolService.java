@@ -5,6 +5,8 @@ import by.belohvostik.innovationpak.repository.ProtocolRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class DefProtocolService implements  ProtocolService{
@@ -13,6 +15,27 @@ public class DefProtocolService implements  ProtocolService{
 
     @Override
     public Protocol getProtocolFindById(Integer id) {
-        return protocolRepository.findById(id).get();
+        return protocolRepository.getById(id);
+    }
+
+    @Override
+    public List<Protocol> readAll() {
+        return protocolRepository.findAll();
+    }
+
+    @Override
+    public Protocol save(Protocol protocol) {
+        return protocolRepository.save(protocol);
+    }
+
+    @Override
+    public Protocol update(Protocol protocol) {
+        return protocolRepository.saveAndFlush(protocol);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        protocolRepository.deleteById(id);
+
     }
 }

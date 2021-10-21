@@ -14,4 +14,5 @@ public class InnovationPakApplication {
         SpringApplication.run(InnovationPakApplication.class, args);
     }
 
+
 }

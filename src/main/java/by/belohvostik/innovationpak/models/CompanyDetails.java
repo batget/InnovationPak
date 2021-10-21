@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Getter
@@ -34,5 +35,16 @@ public class CompanyDetails {
     @Column(name = "bank_bik")
     private String bank_bik;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CompanyDetails)) return false;
+        CompanyDetails that = (CompanyDetails) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(address, that.address) && Objects.equals(account, that.account) && Objects.equals(bank_name, that.bank_name) && Objects.equals(bank_bik, that.bank_bik);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, account, bank_name, bank_bik);
+    }
 }

@@ -5,6 +5,8 @@ import by.belohvostik.innovationpak.repository.GoodsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class DefGoodsService implements  GoodsService{
@@ -13,6 +15,27 @@ public class DefGoodsService implements  GoodsService{
 
     @Override
     public Goods getGoodsFindById(Integer id) {
-        return goodsRepository.findById(id).get();
+        return goodsRepository.getById(id);
+    }
+
+    @Override
+    public List<Goods> readAll() {
+        return goodsRepository.findAll();
+    }
+
+    @Override
+    public Goods save(Goods goods) {
+        return goodsRepository.save(goods);
+    }
+
+    @Override
+    public Goods update(Goods goods) {
+        return goodsRepository.saveAndFlush(goods);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        goodsRepository.deleteById(id);
+
     }
 }

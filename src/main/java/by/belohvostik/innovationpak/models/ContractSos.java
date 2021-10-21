@@ -1,9 +1,11 @@
 package by.belohvostik.innovationpak.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -11,34 +13,33 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @Entity
+@ToString
 @Table(name = "contract_sos")
 @RequiredArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class ContractSos {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+    @Column(updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp create_data;
+    @Column(updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp update_data;
-    private String contact_number;
+    @Column(name = "contract_number")
+    private String contract_number;
+    @Column(name = "customer_id")
     private int customer_id;
+    @Column(updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp start_date;
+    @Column(updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss")
     private Timestamp end_date;
 
-    public ContractSos(@JsonProperty("id") int id,
-                       @JsonProperty("create_data") Timestamp create_data,
-                       @JsonProperty("update_data") Timestamp update_data,
-                       @JsonProperty("contract_number") String contact_number,
-                       @JsonProperty("customer_id") int customer_id,
-                       @JsonProperty("start_date") Timestamp start_date,
-                       @JsonProperty("end_date") Timestamp end_date) {
-        this.id = id;
-        this.create_data = create_data;
-        this.update_data = update_data;
-        this.contact_number = contact_number;
-        this.customer_id = customer_id;
-        this.start_date = start_date;
-        this.end_date = end_date;
-    }
+
 }
