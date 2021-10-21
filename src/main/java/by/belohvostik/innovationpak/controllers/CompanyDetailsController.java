@@ -3,17 +3,44 @@ package by.belohvostik.innovationpak.controllers;
 
 import by.belohvostik.innovationpak.models.CompanyDetails;
 import by.belohvostik.innovationpak.services.CompanyDetailsService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("CompanyDetails")
-public record CompanyDetailsController(CompanyDetailsService companyDetailsService) {
+@RequestMapping("Company")
+public class CompanyDetailsController {
+
+    private final CompanyDetailsService companyDetailsService;
+
+    public CompanyDetailsController(CompanyDetailsService companyDetailsService) {
+        this.companyDetailsService = companyDetailsService;
+    }
 
     @GetMapping("/read/{id}")
-    public CompanyDetails readCompany(@PathVariable Long id) {
+    public CompanyDetails readCompanyId(@PathVariable("id") Long id) {
         return companyDetailsService.getCompanyFindById(id);
+    }
+
+    @GetMapping("/readAll")
+    public List<CompanyDetails> readCompanyAll(CompanyDetails companyDetails) {
+        return companyDetailsService.readAll();
+
+    }
+
+    @PostMapping("/create")
+    public CompanyDetails create(@RequestBody CompanyDetails companyDetails) {
+        return companyDetailsService.save(companyDetails);
+    }
+
+    @PutMapping("/update")
+    public CompanyDetails update(@RequestBody CompanyDetails companyDetails) {
+        return companyDetailsService.update(companyDetails);
+    }
+
+
+    @DeleteMapping ("/delete/{id}")
+    public void delete(@PathVariable("id)") Long id) {
+        companyDetailsService.deleteById(id);
     }
 }

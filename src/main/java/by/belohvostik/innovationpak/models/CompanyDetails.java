@@ -1,9 +1,10 @@
 package by.belohvostik.innovationpak.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,33 +12,27 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "company_details")
+@Table(name = "companydetails")
+@ToString
 @RequiredArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CompanyDetails {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "address")
     private String address;
+    @Column(name = "account")
     private String account;
+    @Column(name = "bank_name")
     private String bank_name;
+    @Column(name = "bank_bik")
     private String bank_bik;
 
-    public CompanyDetails(
-            @JsonProperty("id") Long id,
-            @JsonProperty("name") String name,
-            @JsonProperty("address") String address,
-            @JsonProperty("account") String account,
-            @JsonProperty("bank_name") String bank_name,
-            @JsonProperty("bank_bik") String bank_bik) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.account = account;
-        this.bank_name = bank_name;
-        this.bank_bik = bank_bik;
-    }
 
 }
