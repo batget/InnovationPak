@@ -1,4 +1,4 @@
 # InnovationPak
 
 
-Попытка сделать проект через Gradle!!
+ проект через Gradle!!
